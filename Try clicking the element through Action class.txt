@@ -1,0 +1,83 @@
+Aggregate Report in Jmeter is one of the most essential listener. It is almost same as Summary Report except Aggregate Report gives few more parameters like, “Median”, “90% Line”, “95% Line” and “99% Line”. Before going further it's better to have understanding of How to Record and Run Jmeter Script & Summary Report.Mar 9, 2017
+
+Selenium:
+1. How to find the last cell value of a web table.
+2. How to read the table content which appears on a popup.
+3. If .click() is not working, what alternative ways we have to click on a webElement.
+4. What challenges did you faced in your framewor...
+
+Try clicking the element through Action class.
+
+WebElement webElement = driver.findElement(By.id("Your ID Here"));
+
+Actions builder = new Actions(driver);
+
+builder.moveToElement(webElement).click(webElement);
+
+builder.perform();
+
+You can also try clicking element by Javascript, If clicking with action class does not work,
+
+WebElement webElement = driver.findElement(By.id("Your ID here"));
+
+JavascriptExecutor executor = (JavascriptExecutor) driver;
+
+executor.executeScript("arguments[0].click();", webElement);
+
+--------------------------------------------------
+how to inspect element on android using Google chrome
+https://www.youtube.com/watch?v=-3ZVN1R7i1w
+--------------------------------------------------------------------------------
+How to Inspect Element on Android-Inspect Element in Android [Instant edit and see your webpage]
+https://www.youtube.com/watch?v=mTor7TxC5ik
+-----------------------------------------------------------------------------------------------
+public static void startAppiumServer() {
+		
+		
+		AppiumServiceBuilder serviceBuilder = new AppiumServiceBuilder();
+		
+//         Use any port, in case the default 4723 is already taken (May be by another Appium server)
+//         serviceBuilder.usingAnyFreePort();
+        
+        serviceBuilder.withIPAddress("127.0.0.1");
+        serviceBuilder.usingPort(4723);
+        
+        // Tell serviceBuilder where node is installed. Or set this path in an environment variable named NODE_PATH
+        serviceBuilder.usingDriverExecutable(new File("/usr/local/bin/node"));
+        
+        // Tell serviceBuilder where Appium is installed. Or set this path in an environment variable named APPIUM_PATH
+        serviceBuilder.withAppiumJS(new File("/usr/local/bin/appium"));
+
+        HashMap<String, String> environment = new HashMap();
+        environment.put("PATH", "/usr/local/bin:" + System.getenv("PATH"));
+        serviceBuilder.withEnvironment(environment);
+
+        server = AppiumDriverLocalService.buildService(serviceBuilder);
+        server.start();
+	}
+	/**
+	 * Stop's the Appium Server and Close the Connection
+	 */
+	public static void stopAppiumServer() {
+        server.stop();
+    }
+	/**
+	 * 
+	 * @return : driver
+	 */
+	public AppiumDriver<MobileElement> getAndroidDriver() {
+		return driver;
+	}
+	/**
+	 * 
+	 * @return : wait
+	 */
+	public WebDriverWait getWebDriverWait() {
+		return wait;
+	}
+----------------------------------------------------------
+
+'C:\Users\Rajesh_kushwaha\android-sdks\platform-tools\adb.exe -P 5037 -s 192.168.65.107\:5555 forward
+
+
+
